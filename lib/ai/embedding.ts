@@ -6,12 +6,22 @@ import { embeddings } from '../db/schema/embeddings';
 
 const embeddingModel = openai.embedding('text-embedding-ada-002');
 
-const generateChunks = (input: string): string[] => {
-  return input
+const generateChunks = (input: string, sentencesPerChunk: number = 3): string[] => {
+  // Split the input into sentences by splitting on periods followed by spaces
+  const sentences = input
     .trim()
-    .split('.')
-    .filter(i => i !== '');
+    .split(/(?<=\.)\s+/)
+    .filter(sentence => sentence !== '');
+
+  // Group sentences into chunks of the specified size
+  const chunks: string[] = [];
+  for (let i = 0; i < sentences.length; i += sentencesPerChunk) {
+    chunks.push(sentences.slice(i, i + sentencesPerChunk).join(' '));
+  }
+
+  return chunks;
 };
+
 
 export const generateEmbeddings = async (
   value: string,

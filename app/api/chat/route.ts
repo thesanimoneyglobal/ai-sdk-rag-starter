@@ -34,6 +34,8 @@ export async function POST(req: Request) {
         }),
         execute: async ({ question }) => findRelevantContent(question),
       }),
+
+
     },
   });
 
