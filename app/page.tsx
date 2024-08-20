@@ -49,8 +49,7 @@ export default function Chat() {
                         <div key={m.id} className="whitespace-pre-wrap">
                             <div>
                                 <h4 className="font-bold mb-1 flex gap-x-1 items-center">
-                                    {m.name}
-                                    {m.role[0].toUpperCase() + m.role.slice(1)} {m.role === 'assistant' ? (
+                                     {m.role === 'assistant' ? (
                                         <div className={'rounded-full bg-blue-100 p-1'}>
                                             <Bot />
                                         </div>
@@ -59,6 +58,7 @@ export default function Chat() {
                                             <Smile />
                                         </div>
                                     )}
+                                    {m.role[0].toUpperCase() + m.role.slice(1)}
                                 </h4>
                                 <div className={m.role === 'assistant' ? `text-sm text-gray-600 bg-blue-50 p-2 rounded-md` :
                                     'text-sm text-gray-600 bg-zinc-50 p-2 rounded-md'}>
