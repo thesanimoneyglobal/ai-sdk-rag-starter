@@ -87,7 +87,7 @@ export default function Chat() {
                     {messages.length <= 0 &&
                         <div className="text-xs w-full absolute flex justify-between -top-14 left-0">
                             {questions.map(({question}, index) =>
-                                <Button className={'opacity-60 font-normal'} key={index} variant={'secondary'}
+                                <Button type={'button'} className={'opacity-60 font-normal'} key={index} variant={'secondary'}
                                         onClick={() => setInput(question)}>{question}</Button>)}
                         </div>}
                     <input
