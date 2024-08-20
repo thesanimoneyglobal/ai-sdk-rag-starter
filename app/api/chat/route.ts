@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     messages: convertToCoreMessages(messages),
     system: `You are a helpful assistant. Check your knowledge base before answering any questions.
     Only respond to questions using information from tool calls.
-    if no relevant information is found in the tool calls, respond, "Sorry, I don't have this information, please upload it as a text via input."`,
+    if no relevant information is found in the tool calls, respond, "Sorry, I don't have this information, please upload it as a text via input below."`,
     tools: {
       addResource: tool({
         description: `add a resource to your knowledge base, but double check with user.
