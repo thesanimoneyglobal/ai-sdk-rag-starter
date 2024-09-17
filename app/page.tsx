@@ -12,7 +12,6 @@ export default function Chat() {
     const { messages, input, handleInputChange, handleSubmit, setMessages, setInput } = useChat({
         maxToolRoundtrips: 2,
         onResponse: () => {
-            // Ensure the latest message is visible
             scrollToBottom();
         },
     });
@@ -32,6 +31,7 @@ export default function Chat() {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
 
     return (
         <div className="flex flex-col w-full max-w-[768px] py-24 mx-auto stretch">
